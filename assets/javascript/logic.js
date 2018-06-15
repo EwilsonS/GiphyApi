@@ -4,22 +4,14 @@
 // will need a for loop and var i to creat uniqu identifiers
 
 var topics = ["cars", "video games", "guitar", "food", "spiders", "roller coasters"]
-var newTopic = "";
-var apiKey = "33dbXZtSVdT9qRXABAxgAN2FtGTormNK";
-var searchWord;
-var queryUrl = "http://api.giphy.com/v1/gifs/search?q=guitar&api_key=33dbXZtSVdT9qRXABAxgAN2FtGTormNK&limit=9";
 
-$("#submit").click(function () {
-    event.preventDefault();
-    newGif = $("#user-input").val().trim();
-    newGifBtn = $("<button class='btn btn-info btn-sm'>");
-    newGifBtn.text(newGif)
-    topics.push(newGif);
-    $("#button-area").append(newGifBtn)
-    console.log(newGif, topics)
-})
 
 function getTheGif() {
+
+    // var newTopic = "";
+    var apiKey = "33dbXZtSVdT9qRXABAxgAN2FtGTormNK";
+    var searchWord = $(this).attr("data-name");
+    var queryUrl = "http://api.giphy.com/v1/gifs/search?q=" + searchWord + "&api_key=33dbXZtSVdT9qRXABAxgAN2FtGTormNK&limit=9";
 
     $.ajax({
         url: queryUrl,
@@ -30,19 +22,20 @@ function getTheGif() {
 
             var gifURL = response.data.images.url;
             var gifImg = $("<img>");
-            $("#gif-area").append(gifImg);
+            $("#gif-area").append(gifImg, gifURL);
             console.log(gifURL);
 
         });
+    console.log(queryUrl);
+
 }
 function makeBtns() {
 
 
     for (var i = 0; i < topics.length; i++) {
 
-
-
         var topicButton = $("<button>");
+        topicButton.attr("data-name", topics[i]);
         topicButton.attr("id", "topicBtn-" + i);
         topicButton.attr("class", "btn btn-info btn-sm m-1");
         topicButton.text(topics[i]);
@@ -52,26 +45,19 @@ function makeBtns() {
 
 
     }
+    $("#submit").click(function () {
+        event.preventDefault();
+        newGif = $("#user-input").val().trim();
+        newGifBtn = $("<button class='btn btn-info btn-sm'>");
+        newGifBtn.text(newGif)
+        newGifBtn.attr("data-name", topics.lentgh-1)
+        topics.push(newGif);
+        $("#button-area").append(newGifBtn)
+        console.log(newGif)
+    })
 }
 
 
 $(document).on("click", ".btn", getTheGif)
-console.log(queryUrl);
 getTheGif();
 makeBtns();
-
-
-
-    // $(document).on("click", "#submit", (function addNewTopic() {
-    //     event.preventDefault();
-
-    //     var newTopicText = $("#user-input").val().trim();
-    //     topics.push(newTopicText);
-    //     newTopic = $("<button>");
-    //     newTopic.attr("class", "btn btn-info btn-sm m-1")
-    //     newTopic.text(newTopicText);
-
-    //     $("#button-area").append(newTopic);
-    //     $("#user-input").empty()
-    //     console.log(topics);
-    // }));
