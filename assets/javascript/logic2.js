@@ -1,4 +1,4 @@
-var topics = ["funny", "fail", "shark", "bruce lee", "trump"]
+var topics = ["funny", "fail", "shark", "bruce lee", "x-men"]
 
 $("#search-area").html("<input type='text' id='user-input' class='form-group mt-3' placeholder='Find Your Gif'>" +
     "<span><button id='submit' type='submit' class='btn btn-info btn-sm m-1 mb-2' >Search</button><br>" +
