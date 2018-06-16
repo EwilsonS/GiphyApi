@@ -3,7 +3,7 @@
 // set up click event that grabs the buttons and calls ajax request to giphy
 // will need a for loop and var i to creat uniqu identifiers
 
-var topics = ["cars", "video games", "guitar", "food", "spiders", "roller coasters"]
+var topics = ["cars", "games", "guitar", "food", "spiders", "coasters"]
 
 
 function getTheGif() {
@@ -20,8 +20,9 @@ function getTheGif() {
         .then(function (response) {
             console.log("----------------------")
 
-            var gifURL = response.data.images.url;
+            var gifURL = response.data[0].images.fixed_height_still.url;
             var gifImg = $("<img>");
+            gifImg.attr("src", gifURL);
             $("#gif-area").append(gifImg, gifURL);
             console.log(gifURL);
 
@@ -50,7 +51,7 @@ function makeBtns() {
         newGif = $("#user-input").val().trim();
         newGifBtn = $("<button class='btn btn-info btn-sm'>");
         newGifBtn.text(newGif)
-        newGifBtn.attr("data-name", topics.lentgh-1)
+        newGifBtn.attr("data-name", topics[i])
         topics.push(newGif);
         $("#button-area").append(newGifBtn)
         console.log(newGif)
