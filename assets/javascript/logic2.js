@@ -1,17 +1,20 @@
 var topics = ["funny", "fail", "shark", "bruce lee", "trump"]
 
 $("#search-area").html("<input type='text' id='user-input' class='form-group mt-3' placeholder='Find Your Gif'>" +
-    "<span><button id='submit' type='submit' class='btn btn-info btn-sm m-1 mb-2' >Search</button><br>"+
-" <p>Hi, welcom to Evan's gif generator.<br><br>Press a button or make your own, then click the picture to animate.</p>")
+    "<span><button id='submit' type='submit' class='btn btn-info btn-sm m-1 mb-2' >Search</button><br>" +
+    " <p>Hi, welcom to Evan's gif generator.<br><br>Press a button or make your own, then click the picture to animate.</p>")
 
 $("#user-input").keyup(function (event) {
     if (event.keyCode === 13) {
         $("#submit").click();
+        $(this).val('');
+        
     }
 });
 
 $("#submit").on("click", function () {
     $("#button-area").empty();
+
     var newTopic = $("#user-input").val().trim();
 
 
@@ -19,6 +22,8 @@ $("#submit").on("click", function () {
     console.log(newTopic)
     console.log(topics)
     go();
+    $("#user-input").val('');
+
 })
 
 function go() {
