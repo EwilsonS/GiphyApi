@@ -1,0 +1,48 @@
+
+body{
+    background-color: #29233b;
+}
+h4{
+    color: #00e8f4;
+}
+#gif-area{
+    align-content: center;
+}
+.container{
+    background-color: #08011b;
+    align-content: center;
+}
+.topics{
+    background-color: #00e8f4;
+    color: #d16117;
+    font-size: 150%;
+    font-weight: bold;
+    outline: 0;
+    border: none
+
+}
+.topics:hover{
+    background-color: #d16117;
+    color: #00e8f4;
+    outline: 0;
+    border: none
+}
+.topics:focus{
+    background-color: #d16117;
+    color: #00e8f4;
+    outline: 0;
+    border: none
+}
+
+#submit{
+    background-color: #d16117;
+    color: #00e8f4;
+    border: none;
+
+}
+.img-thumbnail{
+    color: #d16117
+}
+p{
+    color: #575168
+}

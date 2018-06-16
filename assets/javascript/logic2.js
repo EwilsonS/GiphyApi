@@ -1,7 +1,14 @@
-var topics = ["cars", "games", "guitar", "food", "spiders", "coasters"]
+var topics = ["funny", "fail", "shark", "bruce lee", "trump"]
 
-$("#search-area").html("<input type='text' id='user-input' class='form-group'>" +
-    "<span><button id='submit' type='submit' class='btn btn-info btn-sm m-1'>Submit</button>")
+$("#search-area").html("<input type='text' id='user-input' class='form-group mt-3' placeholder='Find Your Gif'>" +
+    "<span><button id='submit' type='submit' class='btn btn-info btn-sm m-1 mb-2' >Search</button><br>"+
+" <p>Hi, welcom to Evan's gif generator.<br><br>Press a button or make your own, then click the picture to animate.</p>")
+
+$("#user-input").keyup(function (event) {
+    if (event.keyCode === 13) {
+        $("#submit").click();
+    }
+});
 
 $("#submit").on("click", function () {
     $("#button-area").empty();
@@ -19,8 +26,8 @@ function go() {
 
         var topicButton = $("<button>");
         topicButton.attr("data-name", topics[i]);
-        topicButton.attr("class", "btn btn-info btn-sm m-1 topics");
-        topicButton.text(topics[i]);
+        topicButton.attr("class", "btn btn-info m-2 topics");
+        topicButton.text(topics[i].toUpperCase());
         $("#button-area").append(topicButton);
     }
 
@@ -46,12 +53,12 @@ function go() {
 
                 for (var i = 0; i < results.length; i++) {
                     var rating = results[i].rating
-                    var ratingLabel = $("<p>").text("This GIF is Rated:" + rating)
+                    var ratingLabel = $("<h4>").text("Rated: " + rating.toUpperCase())
 
-                    var topicImage = $("<img class='gif'>");
-                    topicImage.attr("src", results[i].images.fixed_width_small_still.url)
-                    topicImage.attr("data-still", results[i].images.fixed_width_small_still.url)
-                    topicImage.attr("data-animate", results[i].images.fixed_width_small.url)
+                    var topicImage = $("<img class='gif img-thumbnail ml-5 mt-5 mb-1 text-center rounded'>");
+                    topicImage.attr("src", results[i].images.fixed_width_still.url)
+                    topicImage.attr("data-still", results[i].images.fixed_width_still.url)
+                    topicImage.attr("data-animate", results[i].images.fixed_width.url)
                     topicImage.attr("data-state", "still")
                     topicImage.text(results[i].rating)
                     $("#gif-area").append(topicImage)
