@@ -41,7 +41,7 @@ function go() {
         event.preventDefault();
 
         var searchWord = $(this).attr("data-name");
-        var queryUrl = "http://api.giphy.com/v1/gifs/search?q=" + searchWord + "&api_key=33dbXZtSVdT9qRXABAxgAN2FtGTormNK&limit=10";
+        var queryUrl = "https://api.giphy.com/v1/gifs/search?q=" + searchWord + "&api_key=33dbXZtSVdT9qRXABAxgAN2FtGTormNK&limit=10";
         $("#gif-area").empty();
         console.log(searchWord);
         console.log(queryUrl);
