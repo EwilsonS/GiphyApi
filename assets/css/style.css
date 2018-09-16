@@ -1,16 +1,20 @@
 
 body{
-    background-color: #29233b;
+    /* background-color: #29233b; */
+  background-color:rgb(0, 39, 65);
+
 }
 h4{
     color: #00e8f4;
 }
 #gif-area{
-    align-content: center;
+    align-content: flex-start;
 }
 .container{
-    background-color: #08011b;
-    align-content: center;
+    /* background-color: #08011b; */
+  background-color: rgb(0, 32, 53);
+
+    align-content: center;    
 }
 .topics{
     background-color: #00e8f4;
@@ -44,5 +48,6 @@ h4{
     color: #d16117
 }
 p{
-    color: #575168
+    color: rgb(26, 89, 131)
 }
+

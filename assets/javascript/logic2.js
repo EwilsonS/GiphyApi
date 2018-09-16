@@ -8,22 +8,27 @@ $("#user-input").keyup(function (event) {
     if (event.keyCode === 13) {
         $("#submit").click();
         $(this).val('');
-        
+
     }
 });
 
 $("#submit").on("click", function () {
-    $("#button-area").empty();
 
     var newTopic = $("#user-input").val().trim();
 
+    if (newTopic === "") {
+        return
+    } else {
 
-    topics.push(newTopic)
-    console.log(newTopic)
-    console.log(topics)
-    go();
-    $("#user-input").val('');
+        $("#button-area").empty();
 
+
+        topics.push(newTopic)
+        console.log(newTopic)
+        console.log(topics)
+        go();
+        $("#user-input").val('');
+    }
 })
 
 function go() {
@@ -58,16 +63,16 @@ function go() {
 
                 for (var i = 0; i < results.length; i++) {
                     var rating = results[i].rating
-                    var ratingLabel = $("<h4>").text("Rated: " + rating.toUpperCase())
+                    var ratingLabel = $("<h4>").append("Rated: " + rating.toUpperCase())
 
                     var topicImage = $("<img class='gif img-thumbnail ml-5 mt-5 mb-1 text-center rounded'>");
                     topicImage.attr("src", results[i].images.fixed_width_still.url)
                     topicImage.attr("data-still", results[i].images.fixed_width_still.url)
                     topicImage.attr("data-animate", results[i].images.fixed_width.url)
                     topicImage.attr("data-state", "still")
-                    topicImage.text(results[i].rating)
+                    // topicImage.text(results[i].rating)
                     $("#gif-area").append(topicImage)
-                    $("#gif-area").append(ratingLabel)
+                    // $("#gif-area").append(ratingLabel)
 
                 }
                 $(".gif").on("click", function () {
@@ -81,9 +86,6 @@ function go() {
                         $(this).attr("src", $(this).attr("data-still"));
                         $(this).attr("data-state", "still");
                     }
-
-
-
 
                 })
 
