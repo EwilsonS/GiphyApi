@@ -36,7 +36,7 @@ function go() {
 
         var topicButton = $("<button>");
         topicButton.attr("data-name", topics[i]);
-        topicButton.attr("class", "btn btn-info m-2 topics");
+        topicButton.attr("class", "btn btn-info m-1 topics");
         topicButton.text(topics[i].toUpperCase());
         $("#button-area").append(topicButton);
     }
