@@ -1,8 +1,8 @@
 var topics = ["funny", "fail", "shark", "bruce lee", "x-men"]
 
-$("#search-area").html("<input type='text' id='user-input' class='form-group mt-3' placeholder='Find Your Gif'>" +
-    "<span><button id='submit' type='submit' class='btn btn-info btn-sm m-1 mb-2' >Search</button><br>" +
-    " <p>Hi, welcom to Evan's gif generator.<br><br>Press a button or make your own, then click the picture to animate.</p>")
+$("#search-area").html("<input type='text' id='user-input' class='form-group mt-3' placeholder='Enter Gif'>" +
+    "<span><button id='submit' type='submit' class='btn btn-info btn-sm m-1 mb-1' >Search</button><br>" +
+    " <p class='instructions'>Hi, welcom to Evan's gif generator.<br><br>Press a button or make your own, then click the picture to animate.</p>")
 
 $("#user-input").keyup(function (event) {
     if (event.keyCode === 13) {
@@ -65,7 +65,7 @@ function go() {
                     var rating = results[i].rating
                     var ratingLabel = $("<h4>").append("Rated: " + rating.toUpperCase())
 
-                    var topicImage = $("<img class='gif img-thumbnail ml-5 mt-5 mb-1 text-center rounded'>");
+                    var topicImage = $("<img class='gif img-thumbnail ml-1 mt-1 mb-1 text-center rounded'>");
                     topicImage.attr("src", results[i].images.fixed_width_still.url)
                     topicImage.attr("data-still", results[i].images.fixed_width_still.url)
                     topicImage.attr("data-animate", results[i].images.fixed_width.url)
